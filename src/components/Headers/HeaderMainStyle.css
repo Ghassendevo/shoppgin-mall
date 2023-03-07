@@ -1,0 +1,104 @@
+@import '@fontsource/roboto/300.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/700.css';
+body {
+    font-family: Reboto, sans-serif;
+}
+
+.HeaderMain {
+    background-color: white;
+    width: 100%;
+    border-bottom: 1px solid #eaeaea;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.HeaderMain> :nth-child() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HeaderMain>:nth-child(1) {
+    width: 40%;
+}
+
+.HeaderMain> :nth-child(2) {
+    width: 40%;
+}
+
+.HeaderMain> :nth-child(3) {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.Search {
+    width: 500px;
+    border: 2px solid #fe5730;
+    height: 45px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Search>input {
+    outline: none;
+    border: none;
+    height: 30px;
+    width: 60%;
+    color: #fe5730;
+    padding-left: 15px;
+    font-size: 14px;
+    text-transform: capitalize;
+    font-family: Reboto, sans-serif;
+}
+
+.Search>button {
+    background: linear-gradient(to right, #ee2d00, 0%, #fe5730 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ee2d00;
+    padding: 6px 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.for_fav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 107px;
+}
+
+.for_login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+}
+
+.for_items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+}
+
+.for_menu {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.lang {
+    background-color: red;
+}
