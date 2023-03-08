@@ -80,9 +80,12 @@ export const HeaderMain = () => {
                     <div className="for_fav" onClick={favClick}>
                         <motion.div
                             whileHover={{
-                                scale: 1.2
+                                rotateY:180,
                             }}
                             whileTap={{ scale: 0.9 }}
+                            transition={{
+                                type:"tween",duration:0.17
+                            }}
                             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                         >
                             <CiHeart color='#ee2d01' style={{ cursor: "pointer" }} size={45} />
@@ -92,7 +95,10 @@ export const HeaderMain = () => {
                     <div className="for_login" onClick={loginClick}>
                         <motion.div
                             whileHover={{
-                                scale: 1.2
+                                rotateY:180,
+                            }}
+                            transition={{
+                                type:"tween",duration:0.17
                             }}
                             whileTap={{ scale: 0.9 }}
                             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
@@ -104,7 +110,10 @@ export const HeaderMain = () => {
                     <div className="for_items" onClick={itemsClick}>
                         <motion.div
                             whileHover={{
-                                scale: 1.2
+                                rotateY:180,
+                            }}
+                            transition={{
+                                type:"tween",duration:0.17
                             }}
                             whileTap={{ scale: 0.9 }}
                             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
@@ -127,17 +136,47 @@ export const HeaderMain = () => {
                     <div className="line">
                     </div>
                     <div>
-                        <a href="" className="nav_li">Home</a>
-                        <a href="" className="nav_li">Our Store</a>
-                        <a href="" className="nav_li">Blogs</a>
-                        <a href="" className="nav_li">Contact</a>
-                        <a href="" className="nav_li">For Kids</a>
+                        <motion.a
+                            whileHover={{
+                                scale: 1.1,
+                                originX: 0,
+                            }}
+                           
+                            href="" className="nav_li">Home</motion.a>
+                        <motion.a
+                            whileHover={{
+                                scale: 1.1,
+                                originX: 0,
+                            }}
+                           
+                            href="" className="nav_li">Our Store</motion.a>
+                        <motion.a
+                            whileHover={{
+                                scale: 1.1,
+                                originX: 0,
+                            }}
+                           
+                            href="" className="nav_li">Blogs</motion.a>
+                        <motion.a
+                            whileHover={{
+                                scale: 1.1,
+                                originX: 0,
+                            }}
+                           
+                            href="" className="nav_li">Contact</motion.a>
+                        <motion.a
+                            whileHover={{
+                                scale: 1.1,
+                                originX: 0,
+                            }}
+                           
+                            href="" className="nav_li">For Kids</motion.a>
                     </div>
                 </div>
                 <div className="navigtwo">
                     <CiPercent color="#fe5730" size={20} />
                     <p>Offer Zone Or Discount
-  </p>
+                    </p>
                 </div>
             </div>
         </>

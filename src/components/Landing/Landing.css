@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .landing {
     background-color: #f2f3f7;
     width: 100%;
@@ -28,7 +33,7 @@
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center !important;
 }
 
 .swiper-slide img {
@@ -57,7 +62,7 @@
 
 .banner_image {
     position: absolute;
-    width: 100%;
+    width: 20%;
 }
 
 .add>:nth-child(1) {}
@@ -72,4 +77,118 @@
 
 .hello {
     z-index: 1;
+}
+
+.swiper-button-prev-unique {
+    display: none;
+    align-items: center;
+    z-index: 2;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    background-color: #ee2d00;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.swiper-button-prev-unique:hover {
+    transition: 0.2s;
+    background-color: black;
+}
+
+.swiper-button-next-unique {
+    display: none;
+    align-items: center;
+    z-index: 2;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    background-color: #ee2d00;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.swiper-button-next-unique:hover {
+    transition: 0.2s;
+    background-color: black;
+}
+
+.swiper:hover>.swiper-button-next-unique,
+.swiper:hover>.swiper-button-prev-unique {
+    display: flex;
+}
+
+.inside_swiper {
+    position: absolute;
+    width: 50%;
+    left: 10%;
+    top: 20%;
+    text-align: left;
+    font-family: "Reboto" sans-serif;
+}
+
+.h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.p {
+    font-size: 32px;
+    font-weight: 100;
+    line-height: 22px;
+    color: white;
+    text-transform: uppercase;
+    margin: 25px 0 20px;
+    letter-spacing: .3px;
+}
+
+.special {
+    font-size: 48px;
+    line-height: 22px;
+    letter-spacing: .3px;
+    font-weight: 500;
+    padding: 0 0 15px;
+    text-transform: uppercase;
+    color: white;
+    clear: both;
+}
+
+.startingfrom {
+    font-size: 14px;
+    font-weight: 300;
+    color: white;
+    line-height: 17px;
+    font-style: italic;
+    padding: 5px 0 0 10px;
+    letter-spacing: .3px;
+    padding: 0;
+    display: block;
+}
+
+.start {
+    font-weight: 500;
+    color: white;
+    display: block;
+    border-left: 4px solid white;
+    padding: 5px 0 0 10px;
+    line-height: 50px;
+}
+
+.price {
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+    display: block;
+    padding: 5px 0 0 10px;
+    line-height: 50px;
 }
