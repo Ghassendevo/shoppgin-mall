@@ -4,6 +4,7 @@ import './App.css'
 import { Header } from './components/Headers/header';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HeaderMain } from './components/Headers/HeaderMain';
+import { Landing } from './components/Landing/Landing';
 function App() {
   
 
@@ -12,7 +13,7 @@ function App() {
       <Header />
       <HeaderMain/>
       <Routes>
-          
+          <Route path="/" element={<Landing />} />
       </Routes>
     </Router>
   )

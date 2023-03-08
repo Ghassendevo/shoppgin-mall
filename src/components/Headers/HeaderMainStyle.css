@@ -6,6 +6,11 @@ body {
     font-family: Reboto, sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: #444444;
+}
+
 .HeaderMain {
     background-color: white;
     width: 100%;
@@ -101,4 +106,73 @@ body {
 
 .lang {
     background-color: red;
+}
+
+.navigationmenu {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+}
+
+.navigone {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.navigone>:nth-child(1) {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    width: 170px;
+    align-items: center;
+    font-size: 13px;
+    font-family: Reboto, sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.navigone>:nth-child(3) {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: Reboto, sans-serif;
+}
+
+.line {
+    initial-value: '';
+    border: 0.5px solid #e5e5e5;
+    height: 25px;
+    width: 0.5px;
+}
+
+.nav_li {
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0.6;
+    color: #444444;
+}
+
+.navigtwo {
+    display: flex;
+    width: 200px;
+    font-size: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.navigtwo>p {
+    color: #fe5730;
 }
