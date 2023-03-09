@@ -5,6 +5,7 @@ import { Header } from './components/Headers/header';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HeaderMain } from './components/Headers/HeaderMain';
 import { Landing } from './components/Landing/Landing';
+import { Welcome } from './components/Welcome/welcome';
 function App() {
   
 
@@ -13,7 +14,7 @@ function App() {
       <Header />
       <HeaderMain/>
       <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={[<Landing/>,<Welcome/>]} />
       </Routes>
     </Router>
   )

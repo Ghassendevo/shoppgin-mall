@@ -87,14 +87,14 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 120px;
+    width: 100px;
 }
 
 .for_items {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 120px;
+    width: 100px;
 }
 
 .for_menu {

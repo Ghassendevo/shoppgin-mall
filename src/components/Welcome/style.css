@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@100;=900    &family=Roboto:wght@100&display=swap');
+body {
+    font-family: 'Asap', sans-serif;
+}
+
+.back1 {
+    width: 200px;
+    height: 300px;
+    opacity: 0.3;
+}
+
+.welcome {
+    padding-top: 40px;
+    height: 200vh;
+}
+
+.containerWelcome {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.welcometo {
+    font-weight: 300;
+    font-family: 'Asap', sans-serif;
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.705);
+    text-transform: uppercase;
+}
+
+.getwaymall {
+    line-height: 1.8;
+    font-weight: 600;
+    font-size: 35px;
+    color: black;
+    font-family: 'Asap', sans-serif;
+    text-transform: uppercase;
+}
+
+.yellow_line {
+    initial-value: "";
+    width: 150px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: rgb(236, 236, 51);
+}
+
+.mallname {
+    color: #fe5730;
+    padding-left: 30px;
+    font-family: 'Asap', sans-serif;
+    letter-spacing: 1.5px;
+}
+
+.parag {
+    width: 40%;
+    font-family: 'Asap', sans-serif;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.644);
+}
+
+.contactus_btn {
+    background-color: #fe5730;
+    height: 40px;
+    width: 150px;
+    outline: none;
+    border: 1px solid #fe5730;
+    color: white;
+    font-family: 'Asap', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.outlettwo {
+    width: 100%;
+}
+
+.welcome_img {
+    box-shadow: 0px 0px 20px rgb(142, 136, 136);
+    width: 400px;
+    right: 20%;
+    top: 0;
+}
+
+.welcome_img:nth-child(2) {
+    box-shadow: 0px 0px 20px rgb(142, 136, 136);
+    width: 400px;
+    position: relative;
+    right: -15%;
+}
+
+.welcome_img:nth-child(3) {
+    opacity: 0.1;
+    width: 400px;
+    position: absolute;
+    right: 25%;
+    top: 130%;
+    z-index: -1;
+}
