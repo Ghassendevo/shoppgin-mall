@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HeaderMain } from './components/Headers/HeaderMain';
 import { Landing } from './components/Landing/Landing';
 import { Welcome } from './components/Welcome/welcome';
+import News from './components/News/news';
 function App() {
   
 
@@ -14,7 +15,7 @@ function App() {
       <Header />
       <HeaderMain/>
       <Routes>
-          <Route path="/" element={[<Landing/>,<Welcome/>]} />
+          <Route path="/" element={[<Landing/>,<Welcome/>,<News />]} />
       </Routes>
     </Router>
   )
