@@ -76,11 +76,10 @@ a:hover {
 
 .news_link {
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid #393939;
     padding: 20px 80px 20px 80px;
-    border-radius: 5px;
     text-transform: uppercase;
-    color: black;
+    color: #393939;
     font-weight: 600;
 }
 

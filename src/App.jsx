@@ -7,6 +7,8 @@ import { HeaderMain } from './components/Headers/HeaderMain';
 import { Landing } from './components/Landing/Landing';
 import { Welcome } from './components/Welcome/welcome';
 import News from './components/News/news';
+import Offre from './components/Offre/offre';
+import Marque from './components/Marque/marque';
 function App() {
   
 
@@ -15,7 +17,7 @@ function App() {
       <Header />
       <HeaderMain/>
       <Routes>
-          <Route path="/" element={[<Landing/>,<Welcome/>,<News />]} />
+          <Route path="/" element={[<Landing/>,<Welcome/>,<News />,<Offre />,<Marque/>]} />
       </Routes>
     </Router>
   )
