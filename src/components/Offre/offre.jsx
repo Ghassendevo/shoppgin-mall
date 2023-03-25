@@ -21,6 +21,9 @@ const variantOffre = {
     transition: {
       type: "tween",
     }
+  },
+  hover:{
+    y:-4,
   }
 }
 const Offre = () => {
@@ -34,7 +37,9 @@ const Offre = () => {
           </div>
         </div>
         <div className='main_in_offre'>
-          <motion.a viewport={{ once: true }} variants={variantOffre} initial="initial" whileInView="animate" className="offre_main">
+          <motion.a viewport={{ once: true }}
+          whileHover="hover"
+          variants={variantOffre} initial="initial" whileInView="animate" className="offre_main">
             <AiFillHeart className="icon" color="#d0d0d0" size={25} />
             <div className="logo_offre">
               <img src="https://th.bing.com/th/id/OIP._EEpgxbYYp0zpEGfXcdrAgHaHa?pid=ImgDet&w=960&h=960&rs=1" alt="" />
@@ -49,7 +54,10 @@ const Offre = () => {
               <a href="" className="news_linke">j'en profite</a>
             </div>
           </motion.a>
-          <motion.div viewport={{ once: true }} variants={variantOffre} initial="initial" whileInView="animate" className="selection_offre">
+          <motion.div viewport={{ once: true }}
+           variants={variantOffre} initial="initial" whileInView="animate"
+           whileHover="hover"
+           className="selection_offre">
 
             <div className="first_offre">
               <CiShoppingTag size={50} />
@@ -63,7 +71,10 @@ const Offre = () => {
               <a href="">Pas encore de compte ? je m'inscris</a>
             </div>
           </motion.div>
-          <motion.a viewport={{ once: true }} variants={variantOffre} initial="initial" whileInView="animate" className="offre_main">
+          <motion.a viewport={{ once: true }} variants={variantOffre} 
+          initial="initial" whileInView="animate" 
+          whileHover="hover"
+          className="offre_main">
             <AiFillHeart className="icon" color="#d0d0d0" size={25} />
             <div className="logo_offre">
               <img src="https://th.bing.com/th/id/OIP._EEpgxbYYp0zpEGfXcdrAgHaHa?pid=ImgDet&w=960&h=960&rs=1" alt="" />
