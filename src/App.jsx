@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import { Header } from './components/Headers/header';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -9,15 +8,16 @@ import { Welcome } from './components/Welcome/welcome';
 import News from './components/News/news';
 import Offre from './components/Offre/offre';
 import Marque from './components/Marque/marque';
+import Cinema from './components/Cinema/Cinema';
 function App() {
-  
+  const [passComponent , setpassComponent] = useState(false)
 
   return (
     <Router>
       <Header />
       <HeaderMain/>
       <Routes>
-          <Route path="/" element={[<Landing/>,<Welcome/>,<News />,<Offre />,<Marque/>]} />
+          <Route path="/" element={[<Landing/>,<Welcome/>,<News />,<Offre />,<Marque/>,<Cinema setpassComponent={setpassComponent}/>]} />
       </Routes>
     </Router>
   )

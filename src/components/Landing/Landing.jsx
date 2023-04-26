@@ -24,7 +24,6 @@ export const Landing = () => {
         progressCircle.current.style.setProperty('--progress', 1 - progress);
         progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
-
     return (
         <div className="landing">
             <div className="container">
