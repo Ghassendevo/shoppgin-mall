@@ -1,0 +1,29 @@
+.parallax {
+    height: 40vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.parallax_div {
+    height: 30vh;
+    width: 90% !important;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back_par {
+    width: 100% !important;
+}
+
+.inside_parallax>h1 {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 30px;
+}

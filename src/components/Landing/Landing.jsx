@@ -25,7 +25,7 @@ export const Landing = () => {
         progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
     return (
-        <div className="landing">
+        <div className="landing" id='landing'>
             <div className="container">
                 <Swiper
                     spaceBetween={30}

@@ -9,15 +9,17 @@ import News from './components/News/news';
 import Offre from './components/Offre/offre';
 import Marque from './components/Marque/marque';
 import Cinema from './components/Cinema/Cinema';
+import Food from './components/Food/Food';
+import Parallax_ from './components/Parallax/Parallax';
+import Services from './components/Services/Services';
+import Footer from './components/Footer/Footer';
 function App() {
-  const [passComponent , setpassComponent] = useState(false)
-
   return (
     <Router>
       <Header />
-      <HeaderMain/>
+      <HeaderMain />
       <Routes>
-          <Route path="/" element={[<Landing/>,<Welcome/>,<News />,<Offre />,<Marque/>,<Cinema setpassComponent={setpassComponent}/>]} />
+        <Route path="/" element={[<Landing />, <Welcome />, <News />, <Offre />, <Marque />, <Cinema />, <Food />, <Parallax_ />, <Services />, <Footer />]} />
       </Routes>
     </Router>
   )

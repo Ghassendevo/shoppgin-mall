@@ -19,7 +19,6 @@ export const HeaderMain = () => {
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
-    console.log("hello")
     const handleClose = (e) => {
         setAnchorEl(null);
         setDefaultLang(e)
@@ -36,7 +35,7 @@ export const HeaderMain = () => {
     }
     return (
         <>
-            <div className="HeaderMain">
+            <div className="HeaderMain" id='home'>
                 <div>
                     <h1>Logo</h1>
                 </div>
