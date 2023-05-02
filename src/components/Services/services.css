@@ -107,6 +107,8 @@
     gap: 14px;
     justify-content: center;
     cursor: pointer;
+    padding-bottom: 90px;
+    padding-top: 90px;
 }
 
 .backtotop>a {
