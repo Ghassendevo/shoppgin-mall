@@ -1,14 +1,16 @@
 import React from 'react'
 import {MdArrowForwardIos} from "react-icons/md"
 import "./marque.css";
+import { useNavigate } from 'react-router-dom';
 const Marque = () => {
+  const navigate = useNavigate();
   return (
     <div className="marque">
       <div className="inside_marque">
         <div className="for_marque">
           <h2 className="marque_n">Marques</h2>
           <div>
-            <a style={{ letterSpacing: 1.3 }}>See all marque (13) <MdArrowForwardIos color='black' size={13} /></a>
+            <a onClick={e=>navigate("/boutiques")} style={{ letterSpacing: 1.3 }}>See all marque (13) <MdArrowForwardIos color='black' size={13} /></a>
           </div>
         </div>
         <div className="main_marque">
