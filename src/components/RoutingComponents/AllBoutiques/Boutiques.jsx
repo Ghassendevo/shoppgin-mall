@@ -5,6 +5,7 @@ import { SlArrowRight } from "react-icons/sl"
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBoutiques } from '../../../redux/actions/getAlldata'
+import { fetchBoutiques } from '../../../redux/reducers/boutiquesReducer'
 import { getAllBoutiques } from '../../../redux/reducers/boutiquesReducer'
 const buttonVariants = {
     whilehover: {
@@ -19,7 +20,8 @@ const Boutiques = () => {
     const dispatch = useDispatch();
     const boutiquesData = useSelector((state)=>state.boutiques.data);
     useEffect(()=>{
-          dispatch(getBoutiques());
+          dispatch(fetchBoutiques());
+
     },[])
     return (
         <div className={style.boutiques}>
