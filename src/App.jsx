@@ -13,14 +13,17 @@ import Food from './components/Food/Food';
 import Parallax_ from './components/Parallax/Parallax';
 import Services from './components/Services/Services';
 import Footer from './components/Footer/Footer';
+import Boutiques from './components/RoutingComponents/AllBoutiques/Boutiques';
 function App() {
   return (
     <Router>
       <Header />
       <HeaderMain />
       <Routes>
-        <Route path="/" element={[<Landing />, <Welcome />, <News />, <Offre />, <Marque />, <Cinema />, <Food />, <Parallax_ />, <Services />, <Footer />]} />
+        <Route path="/" element={[<Landing />, <Welcome />, <News />, <Offre />, <Marque />, <Cinema />, <Food />, <Parallax_ />, <Services />]} />
+        <Route path="/boutiques" element={<Boutiques />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }

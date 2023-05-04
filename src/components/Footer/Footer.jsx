@@ -1,29 +1,32 @@
 import React from 'react'
 import "./footer.css"
+import { FaFacebookF } from "react-icons/fa"
+import { motion } from 'framer-motion'
+import { AiOutlineInstagram, AiOutlineYoutube, AiFillTwitterCircle, AiFillInstagram } from "react-icons/ai"
 const Footer = () => {
     return (
         <>
             <footer>
                 <div class="footer">
                     <div class="row">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-youtube"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><FaFacebookF size={30} className='footer_icons'/></a>
+                        <a href="#"><AiFillInstagram size={30} className='footer_icons' /></a>
+                        <a href="#"><AiOutlineYoutube size={30} className='footer_icons' /></a>
+                        <a href="#"><AiFillTwitterCircle size={30} className='footer_icons' /></a>
                     </div>
 
                     <div class="row">
                         <ul>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Boutiques</a></li>
+                            <li><a href="#">Food Piezza</a></li>
+                            <li><a href="#">Services</a></li>
                             <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Career</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
 
                     <div class="row">
-                        INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
+                        KSARHLELMALL Copyright © 2021 KSARHLEL - All rights reserved || Designed By: Ghassen
                     </div>
                 </div>
             </footer>
