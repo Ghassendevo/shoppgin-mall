@@ -14,6 +14,7 @@ import Parallax_ from './components/Parallax/Parallax';
 import Services from './components/Services/Services';
 import Footer from './components/Footer/Footer';
 import Boutiques from './components/RoutingComponents/AllBoutiques/Boutiques';
+import SelectedBoutique from './components/RoutingComponents/SelectedBoutique/SelectedBoutique';
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={[<Landing />, <Welcome />, <News />, <Offre />, <Marque />, <Cinema />, <Food />, <Parallax_ />, <Services />]} />
         <Route path="/boutiques" element={<Boutiques />} />
+        <Route path="/shops/:nomBoutique" element={<SelectedBoutique />}  />
       </Routes>
       {/* <Footer /> */}
     </Router>

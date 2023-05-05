@@ -10,6 +10,7 @@ import { getAllBoutiques } from '../../../redux/reducers/boutiquesReducer'
 
 import { Skeleton } from '@mui/material'
 import { FaVrCardboard } from "react-icons/fa"
+import { useNavigate } from 'react-router-dom'
 const buttonVariants = {
     whilehover: {
         y: -10,
@@ -24,6 +25,7 @@ const Boutiques = () => {
     const boutiquesData = useSelector((state) => state.boutiques.data);
     const isloading = useSelector((state) => state.boutiques.loading);
     const [searchedValue, setSearchedValue] = useState("");
+    const navigate = useNavigate();
     useEffect(() => {
         dispatch(fetchBoutiques());
     }, [])
@@ -33,9 +35,9 @@ const Boutiques = () => {
     return (
         <div className={style.boutiques}>
             <div className={style.nav}>
-                <a href="" className={style.nav_not_active}>Acceuil</a>
+                <a onClick={e=>navigate("/")} href="" className={style.nav_not_active}>Acceuil</a>
                 <SlArrowRight size={12} />
-                <a href="" className={style.active_nav}>Boutiques</a>
+                <a onClick={e=>navigate("/boutiques")} href="" className={style.active_nav}>Boutiques</a>
                 <SlArrowRight size={12} />
                 {navSelected !== "boutiques" && <a href="" className={style.active_nav}>{navSelected}</a>}
             </div>
@@ -126,7 +128,7 @@ const boutiqueVariant = {
         opacity: 0,
         y: -50,
     },
-    
+
     whileHover: {
         scale: 1.03,
         rotate: 1,
@@ -160,6 +162,7 @@ const MainBoutiquesSkeleton = () => {
 }
 const MainBoutiques = ({ type, boutiquesData, searching }) => {
     const [filteredValues, setFilteredValue] = useState([])
+    const navigate = useNavigate();
     useEffect(() => {
         if (searching !== "") {
             setFilteredValue(boutiquesData.filter((a, b) => { return a.titleBoutique.includes(searching) }))
@@ -182,6 +185,10 @@ const MainBoutiques = ({ type, boutiquesData, searching }) => {
             }
         }
     }, [type, searching])
+    //methodes
+    const navigateToSelectedBoutique = (e) => {
+        navigate(`/shops/${e.titleBoutique}`,{state:e});
+    }
     return (
         <div className={style.for_fetched_boutiques}>
             <div className={style.nombre_boutiques}>
@@ -200,6 +207,7 @@ const MainBoutiques = ({ type, boutiquesData, searching }) => {
                             return (
 
                                 <motion.div
+                                    onClick={e => navigateToSelectedBoutique(value)}
                                     variants={boutiqueVariant}
                                     initial="initial"
                                     exit="exit"
