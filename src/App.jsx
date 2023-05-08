@@ -16,6 +16,7 @@ import Footer from './components/Footer/Footer';
 import Boutiques from './components/RoutingComponents/AllBoutiques/Boutiques';
 import SelectedBoutique from './components/RoutingComponents/SelectedBoutique/SelectedBoutique';
 import AllRestaurants from './components/RoutingComponents/AllResturants/AllRestaurants';
+import SelectedRestaurant from './components/RoutingComponents/SelectedRestaurant/SelectedRestaurant';
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/boutiques" element={<Boutiques />} />
         <Route path="/shops/:nomBoutique" element={<SelectedBoutique />} />
         <Route path="restaurants" element={<AllRestaurants />} />
+        <Route path="/restaurants/:name" element={<SelectedRestaurant />} />
       </Routes>
       {/* <Footer /> */}
     </Router>

@@ -45,7 +45,6 @@ const Boutiques = () => {
                 <motion.div
                     onClick={e => setNavSelected("boutiques")}
                     variants={buttonVariants}
-                    style={{ backgroundColor: navSelected == "boutiques" ? "#f2380c" : "white" }}
                     whileHover={buttonVariants.whilehover}
                     className={navSelected == "boutiques" ? style.href_nav_active : style.href_nav}>
                     <p>TOUTES LES BOUTIQUES</p>
@@ -54,7 +53,6 @@ const Boutiques = () => {
                     onClick={e => setNavSelected("accessoires")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "accessoires" ? "#f2380c" : "white" }}
                     className={navSelected == "accessoires" ? style.href_nav_active : style.href_nav}>
                     <p>accessoires</p>
                 </motion.div>
@@ -62,7 +60,6 @@ const Boutiques = () => {
                     onClick={e => setNavSelected("mode enfant")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "mode enfant" ? "#f2380c" : "white" }}
                     className={navSelected == "mode enfant" ? style.href_nav_active : style.href_nav}>
                     <p>mode enfant</p>
                 </motion.div>
@@ -70,7 +67,6 @@ const Boutiques = () => {
                     onClick={e => setNavSelected("cosmetiques")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "cosmetiques" ? "#f2380c" : "white" }}
                     className={navSelected == "cosmetiques" ? style.href_nav_active : style.href_nav}>
                     <p>cosmetiques</p>
                 </motion.div>
@@ -78,7 +74,6 @@ const Boutiques = () => {
                     onClick={e => setNavSelected("chaussures")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "chaussures" ? "#f2380c" : "white" }}
                     className={navSelected == "chaussures" ? style.href_nav_active : style.href_nav}>
                     <p>chaussures</p>
                 </motion.div>
@@ -86,7 +81,6 @@ const Boutiques = () => {
                     onClick={e => setNavSelected("maison")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "maison" ? "#f2380c" : "white" }}
                     className={navSelected == "maison" ? style.href_nav_active : style.href_nav}>
                     <p>maison</p>
                 </motion.div>
@@ -94,7 +88,6 @@ const Boutiques = () => {
                     onClick={e => setNavSelected("mode femme")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "mode femme" ? "#f2380c" : "white" }}
                     className={navSelected == "mode femme" ? style.href_nav_active : style.href_nav}>
                     <p>mode femme</p>
                 </motion.div>
@@ -102,7 +95,6 @@ const Boutiques = () => {
                     onClick={e => setNavSelected("autres")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "autres" ? "#f2380c" : "white" }}
                     className={navSelected == "autres" ? style.href_nav_active : style.href_nav}>
                     <p>autres</p>
                 </motion.div>

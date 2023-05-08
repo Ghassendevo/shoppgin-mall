@@ -46,7 +46,6 @@ const AllRestaurants = () => {
                 <motion.div
                     onClick={e => setNavSelected("restaurants")}
                     variants={buttonVariants}
-                    style={{ backgroundColor: navSelected == "restaurants" ? "#f2380c" : "white" }}
                     whileHover={buttonVariants.whilehover}
                     className={navSelected == "restaurants" ? style.href_nav_active : style.href_nav}>
                     <p>TOUTES LES RESTAURANTS</p>
@@ -55,7 +54,6 @@ const AllRestaurants = () => {
                     onClick={e => setNavSelected("fast food")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "fast food" ? "#f2380c" : "white" }}
                     className={navSelected == "fast food" ? style.href_nav_active : style.href_nav}>
                     <p>fast food</p>
                 </motion.div>
@@ -63,7 +61,6 @@ const AllRestaurants = () => {
                     onClick={e => setNavSelected("cafe")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "cafe" ? "#f2380c" : "white" }}
                     className={navSelected == "cafe" ? style.href_nav_active : style.href_nav}>
                     <p>cafe</p>
                 </motion.div>
@@ -71,11 +68,10 @@ const AllRestaurants = () => {
                     onClick={e => setNavSelected("patisserie")}
                     variants={buttonVariants}
                     whileHover="whilehover"
-                    style={{ backgroundColor: navSelected == "patisserie" ? "#f2380c" : "white" }}
                     className={navSelected == "patisserie" ? style.href_nav_active : style.href_nav}>
                     <p>patisserie</p>
                 </motion.div>
-                
+
             </div>
             <div className={style.for_search_boutiques}>
                 <motion.input
@@ -144,12 +140,12 @@ const MainRestaurants = ({ type, restaurantsData, searching }) => {
                 setFilteredValue(restaurantsData.filter((a, b) => { return a.type == type }))
             } else if (type == "patisserie") {
                 setFilteredValue(restaurantsData.filter((a, b) => { return a.type == type }))
-            } 
+            }
         }
     }, [type, searching])
     //methodes
     const navigateToSelectedBoutique = (e) => {
-        navigate(`/restaurants/${e.titleBoutique}`, { state: e });
+        navigate(`/restaurants/${e.titleRestaurant}`, { state: e });
     }
     return (
         <div className={style.for_fetched_boutiques}>
