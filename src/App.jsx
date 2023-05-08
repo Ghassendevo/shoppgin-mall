@@ -17,6 +17,8 @@ import Boutiques from './components/RoutingComponents/AllBoutiques/Boutiques';
 import SelectedBoutique from './components/RoutingComponents/SelectedBoutique/SelectedBoutique';
 import AllRestaurants from './components/RoutingComponents/AllResturants/AllRestaurants';
 import SelectedRestaurant from './components/RoutingComponents/SelectedRestaurant/SelectedRestaurant';
+import Loisirs from './components/RoutingComponents/AllLoisirs/Loisirs';
+import SelectedLoisir from './components/RoutingComponents/SelectedLoisir/SelectedLoisir';
 function App() {
   return (
     <Router>
@@ -28,6 +30,8 @@ function App() {
         <Route path="/shops/:nomBoutique" element={<SelectedBoutique />} />
         <Route path="restaurants" element={<AllRestaurants />} />
         <Route path="/restaurants/:name" element={<SelectedRestaurant />} />
+        <Route path="/loisirs" element={<Loisirs />} />
+        <Route path="/loisirs/:name" element={<SelectedLoisir />} />
       </Routes>
       {/* <Footer /> */}
     </Router>

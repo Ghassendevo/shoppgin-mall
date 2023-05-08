@@ -12,6 +12,7 @@ import { RiArrowDropDownLine } from "react-icons/ri"
 import { HiOutlineMenuAlt1 } from "react-icons/hi"
 import {GiFilmSpool} from "react-icons/gi"
 import {BsShop} from "react-icons/bs"
+import logo from "../../assets/mallLogo.png"
 export const HeaderMain = () => {
     const [defaultLang, setDefaultLang] = useState("English")
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -36,8 +37,8 @@ export const HeaderMain = () => {
     return (
         <>
             <div className="HeaderMain" id='home'>
-                <div>
-                    <h1>Logo</h1>
+                <div style={{marginLeft:40}}>
+                    <img src={logo} width={"190 px"} height={"60px"} />
                 </div>
                 <div >
                     <div className="Search">

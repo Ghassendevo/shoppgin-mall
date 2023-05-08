@@ -14,7 +14,9 @@ const SelectedRestaurant = () => {
     const navigate = useNavigate();
     const Allrestaurants = useSelector((state) => state.restaurants.data)
     const restaurantData = location.state;
-
+    const navigateToSelectedRestaurant = (e)=>{
+        navigate(`/restaurants/${e.titleRestaurant}`,{state:e})
+    }
     return (
         <div className={style.selectedRestaurant}>
             <div className={style.nav}>
@@ -136,7 +138,9 @@ const SelectedRestaurant = () => {
                 >
                     {Allrestaurants.map((value, index) => {
                         return (
-                            <SwiperSlide className={style.swiperSlide}><img src={value.logoRestaurant} /></SwiperSlide>
+                            <SwiperSlide 
+                            onClick={()=>navigateToSelectedRestaurant(value)}
+                            className={style.swiperSlide}><img src={value.logoRestaurant} /></SwiperSlide>
                         )
                     })}
                     <div className={style.swiper_button_next_unique}>sdfdsfd</div>

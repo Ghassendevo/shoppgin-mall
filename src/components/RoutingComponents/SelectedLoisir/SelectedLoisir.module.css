@@ -1,0 +1,161 @@
+.selectedRestaurant {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+    height: 100vh;
+}
+
+.nav {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.active_nav {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.nav_not_active {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.825);
+}
+
+.foroncerestaurant {
+    width: 70%;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.leftmainrestaurant {
+    display: flex;
+    width: 50vh;
+    position: relative;
+    height: 30vh;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 1px 12px rgb(240, 240, 240);
+}
+
+.rightmaindiv {
+    width: 60%;
+    height: 30vh;
+}
+
+.rightmaindiv>p:nth-child(1) {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.desc {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+}
+
+.leftmainrestaurant>h3 {
+    position: absolute;
+    bottom: 3%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.restaurantInfo {
+    margin-top: 60px;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    padding-bottom: 60px;
+}
+
+.horaire {
+    width: 40vh;
+    box-shadow: 1px 1px 1px 4px rgb(240, 240, 240);
+    height: 10vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.horaire>p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.ouverturetime {
+    margin-right: 5px;
+    color: green;
+    font-weight: 600 !important;
+}
+
+.fermeturetime {
+    margin-right: 5px;
+    color: red;
+    font-weight: 600 !important;
+}
+
+.contactrestaurant {
+    width: 10vh;
+    box-shadow: 1px 1px 1px 4px rgb(240, 240, 240);
+    height: 10vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.similar {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+}
+
+.similar>h3 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.myswiper {
+    width: 100%;
+    height: 30vh;
+}
+
+.swiperSlide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    width: 90vh;
+}
+
+.swiperSlide>img {
+    display: block;
+    width: 100%;
+    height: 60%;
+}
+
+.swiper_button_next_unique {
+    background-color: red;
+    color: black;
+}

@@ -1,33 +1,32 @@
-import React, { useState } from 'react'
-import style from "./SelectedBoutique.module.css"
-import { SlArrowRight } from "react-icons/sl"
+import React from 'react'
+import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import style from "./SelectedLoisir.module.css"
+import { SlArrowRight } from "react-icons/sl"
 import { motion } from 'framer-motion';
-import { AiOutlineFieldTime, AiOutlinePhone, AiOutlineInstagram, AiOutlineFacebook } from "react-icons/ai"
+import { AiOutlineFieldTime, AiOutlinePhone, AiOutlineFacebook, AiOutlineInstagram } from "react-icons/ai"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import { FaFacebookSquare } from "react-icons/fa"
-import { useSelector } from 'react-redux';
-const SelectedBoutique = () => {
+const SelectedLoisir = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const AllBoutiques = useSelector((state)=> state.boutiques.data)
-    const boutiqueData = location.state;
-    const navigateToSelectedBoutique = (e)=>{
-        navigate(`/shops/${e.titleBoutique}`,{state:e})
+    const Allrestaurants = useSelector((state) => state.loisirs.data)
+    const restaurantData = location.state;
+    const navigateToSelectedRestaurant = (e)=>{
+        navigate(`/loisirs/${e.titleLoisir}`,{state:e})
     }
     return (
-        <div className={style.selectedBoutique}>
+        <div className={style.selectedRestaurant}>
             <div className={style.nav}>
                 <a onClick={e => navigate("/")} className={style.nav_not_active}>Acceuil</a>
                 <SlArrowRight size={12} />
-                <a onClick={e => navigate("/boutiques")} className={style.nav_not_active}>Boutiques</a>
+                <a onClick={e => navigate("/loisirs")} className={style.nav_not_active}>Loisirs</a>
                 <SlArrowRight size={12} />
-                <a className={style.active_nav}>{boutiqueData.titleBoutique}</a>
+                <a className={style.active_nav}>{restaurantData.titleLoisir}</a>
             </div>
-            <div className={style.foronceboutique}>
+            <div className={style.foroncerestaurant}>
                 <motion.div
                     initial={{
                         opacity: 0,
@@ -43,12 +42,12 @@ const SelectedBoutique = () => {
                     whileHover={{
                         y: -5,
                     }}
-                    className={style.leftmainboutique}>
-                    <img src={boutiqueData.logoBoutique} width={220} alt="" />
-                    <h3>{boutiqueData.type_boutique}</h3>
+                    className={style.leftmainrestaurant}>
+                    <img src={restaurantData.logoLoisir} width={220} alt="" />
+                    <h3>{restaurantData.typeLoisir}</h3>
                 </motion.div>
                 <div className={style.rightmaindiv}>
-                    <motion.p initial={{ opacity: 0, y: 10, }} animate={{ opacity: 1, y: 0, }}  >{boutiqueData.titleBoutique} : {boutiqueData.type_boutique}</motion.p>
+                    <motion.p initial={{ opacity: 0, y: 10, }} animate={{ opacity: 1, y: 0, }}  >{restaurantData.titleLoisir} : {restaurantData.typeLoisir}</motion.p>
                     <br />
                     <motion.p
                         initial={{
@@ -57,11 +56,11 @@ const SelectedBoutique = () => {
                         animate={{
                             opacity: 1
                         }}
-                        className={style.desc}>{boutiqueData.descriptionBoutique}</motion.p>
+                        className={style.desc}>{restaurantData.descriptionLoisir}</motion.p>
                 </div>
 
             </div>
-            <div className={style.boutiqueInfo}>
+            <div className={style.restaurantInfo}>
                 <motion.div
                     initial={{
                         opacity: 0,
@@ -76,7 +75,7 @@ const SelectedBoutique = () => {
                     }}
                     className={style.horaire}>
                     <p>Horaire d'ouverture</p><AiOutlineFieldTime size={20} style={{ marginLeft: 5 }} />:
-                    <p className={style.ouverturetime}>{boutiqueData.timeouverture} </p>à  <p className={style.fermeturetime}>{boutiqueData.timefermeture}</p>
+                    <p className={style.ouverturetime}>{restaurantData.timeouverture} </p>à  <p className={style.fermeturetime}>{restaurantData.timefermeture}</p>
                 </motion.div>
                 <motion.div
                     initial={{
@@ -92,7 +91,7 @@ const SelectedBoutique = () => {
                     }}
                     className={style.horaire}>
                     <p>Contact</p><AiOutlinePhone size={20} style={{ marginLeft: 5 }} />:
-                    <p className={style.ouverturetime}>+216 {boutiqueData.contactBoutique} </p>
+                    <p className={style.ouverturetime}>+216 {restaurantData.contactLoisir} </p>
                 </motion.div>
                 <motion.a
                     initial={{
@@ -106,7 +105,7 @@ const SelectedBoutique = () => {
                     whileHover={{
                         rotate: 5
                     }}
-                    href="" className={style.contactboutique}>
+                    href="" className={style.contactrestaurant}>
                     <AiOutlineFacebook size={30} />
                 </motion.a>
                 <motion.a
@@ -121,25 +120,27 @@ const SelectedBoutique = () => {
                     whileHover={{
                         rotate: 5
                     }}
-                    href="" className={style.contactboutique}>
+                    href="" className={style.contactrestaurant}>
                     <AiOutlineInstagram size={30} />
                 </motion.a>
             </div>
             <div className={style.similar}>
                 <h3>Enseignes similaires </h3>
                 <Swiper
-                slidesPerView={3}
-                spaceBetween={90}
-                navigation={true} 
-                modules={[Navigation]}
-              
-                className={style.myswiper}
+                    slidesPerView={3}
+                    spaceBetween={90}
+                    navigation={{
+                        nextEl:'.swiper_button_next_unique'
+                    }}
+                    modules={[Navigation]}
+
+                    className={style.myswiper}
                 >
-                    {AllBoutiques.map((value,index)=>{
+                    {Allrestaurants.map((value, index) => {
                         return (
                             <SwiperSlide 
-                            onClick={()=>navigateToSelectedBoutique(value)}
-                            className={style.swiperSlide}><img src={value.logoBoutique} /></SwiperSlide>
+                            onClick={()=>navigateToSelectedRestaurant(value)}
+                            className={style.swiperSlide}><img src={value.logoLoisir} /></SwiperSlide>
                         )
                     })}
                     <div className={style.swiper_button_next_unique}>sdfdsfd</div>
@@ -149,4 +150,4 @@ const SelectedBoutique = () => {
     )
 }
 
-export default SelectedBoutique
+export default SelectedLoisir
