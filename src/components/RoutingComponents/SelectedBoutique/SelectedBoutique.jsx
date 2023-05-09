@@ -23,7 +23,7 @@ const SelectedBoutique = () => {
             <div className={style.nav}>
                 <a onClick={e => navigate("/")} className={style.nav_not_active}>Acceuil</a>
                 <SlArrowRight size={12} />
-                <a onClick={e => navigate("/boutiques")} className={style.nav_not_active}>Boutiques</a>
+                <a onClick={e => navigate("/boutiques",{state:"boutiques"})} className={style.nav_not_active}>Boutiques</a>
                 <SlArrowRight size={12} />
                 <a className={style.active_nav}>{boutiqueData.titleBoutique}</a>
             </div>

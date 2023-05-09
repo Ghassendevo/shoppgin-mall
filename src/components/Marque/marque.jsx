@@ -10,7 +10,7 @@ const Marque = () => {
         <div className="for_marque">
           <h2 className="marque_n">Marques</h2>
           <div>
-            <a onClick={e=>navigate("/boutiques")} style={{ letterSpacing: 1.3 }}>See all marque (13) <MdArrowForwardIos color='black' size={13} /></a>
+            <a onClick={e=>navigate(`/boutiques`,{state:"boutiques"})} style={{ letterSpacing: 1.3 }}>See all marque (13) <MdArrowForwardIos color='black' size={13} /></a>
           </div>
         </div>
         <div className="main_marque">

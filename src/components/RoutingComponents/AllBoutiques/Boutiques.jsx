@@ -10,7 +10,7 @@ import { getAllBoutiques } from '../../../redux/reducers/boutiquesReducer'
 
 import { Skeleton } from '@mui/material'
 import { FaVrCardboard } from "react-icons/fa"
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 const buttonVariants = {
     whilehover: {
         y: -10,
@@ -26,8 +26,11 @@ const Boutiques = () => {
     const isloading = useSelector((state) => state.boutiques.loading);
     const [searchedValue, setSearchedValue] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
+    const boutType = location.state
     useEffect(() => {
         dispatch(fetchBoutiques());
+        setNavSelected(boutType)
     }, [])
     const handleSearch = (e) => {
         setSearchedValue(e.target.value);
