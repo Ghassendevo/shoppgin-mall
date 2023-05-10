@@ -102,12 +102,11 @@
 .backtotop {
     display: flex;
     align-items: center;
-    background-color: #f7f7f7;
     flex-direction: column;
     gap: 14px;
     justify-content: center;
     cursor: pointer;
-    padding-bottom: 90px;
+    padding-bottom: 115vh;
     padding-top: 90px;
 }
 

@@ -10,7 +10,7 @@ import { fetchLoisir } from '../../../redux/reducers/loisirReducer'
 
 import { Skeleton } from '@mui/material'
 import { FaVrCardboard } from "react-icons/fa"
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 const buttonVariants = {
     whilehover: {
         y: -10,
@@ -20,14 +20,17 @@ const buttonVariants = {
 }
 
 const AllLoisirs = () => {
-    const [navSelected, setNavSelected] = useState("tous");//
+    const [navSelected, setNavSelected] = useState("");//
     const dispatch = useDispatch();
     const restaurantsData = useSelector((state) => state.loisirs.data);
     const isloading = useSelector((state) => state.loisirs.loading);
     const [searchedValue, setSearchedValue] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
+    const loisirType = location.state;
     useEffect(() => {
         dispatch(fetchLoisir());
+        setNavSelected(loisirType)
     }, [])
     const handleSearch = (e) => {
         setSearchedValue(e.target.value);
@@ -37,7 +40,7 @@ const AllLoisirs = () => {
             <div className={style.nav}>
                 <a onClick={e => navigate("/")} href="" className={style.nav_not_active}>Acceuil</a>
                 <SlArrowRight size={12} />
-                <a onClick={e => navigate("/loisirs")} href="" className={style.active_nav}>Loisirs</a>
+                <a onClick={e => navigate("/loisirs",{state:"tous"})} href="" className={style.active_nav}>Loisirs</a>
                 <SlArrowRight size={12} />
                 {navSelected !== "loisirs" && <a href="" className={style.active_nav}>{navSelected}</a>}
             </div>

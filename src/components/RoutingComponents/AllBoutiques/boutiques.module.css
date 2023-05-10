@@ -79,7 +79,8 @@
 .for_fetched_boutiques {
     padding-top: 60px;
     width: 70%;
-    height: 90vh;
+    margin-bottom: 150vh;
+    height: auto;
 }
 
 .input_search {

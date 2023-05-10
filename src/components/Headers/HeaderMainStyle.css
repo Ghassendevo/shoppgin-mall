@@ -11,7 +11,7 @@ a {
     background-color: white;
     width: 100%;
     border-bottom: 1px solid #eaeaea;
-    height: 70px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,11 +179,27 @@ a {
     height: 55vh;
     z-index: 3;
     right: 3%;
-    top: 11.5%;
+    top: 14.9%;
     background-color: white;
     border-radius: 1%;
     border: 6px solid rgb(239, 239, 239);
-    box-shadow: -5px 10px 50px 1px rgb(255, 197, 174);
+    box-shadow: -5px 10px 50px 1px rgb(255, 241, 235);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuRestaurant {
+    position: fixed;
+    width: 70vh;
+    height: 30vh;
+    z-index: 3;
+    right: 3%;
+    top: 14.9%;
+    background-color: white;
+    border-radius: 1%;
+    border: 6px solid rgb(239, 239, 239);
+    box-shadow: -5px 10px 50px 1px rgb(255, 241, 235);
     display: flex;
     align-items: center;
     justify-content: center;

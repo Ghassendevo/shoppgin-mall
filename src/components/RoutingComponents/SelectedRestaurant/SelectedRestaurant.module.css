@@ -4,6 +4,7 @@
     flex-direction: column;
     padding-top: 30px;
     height: 100vh;
+    padding-bottom: 210vh;
 }
 
 .nav {

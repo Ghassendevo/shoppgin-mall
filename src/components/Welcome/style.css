@@ -99,7 +99,7 @@ body {
     opacity: 0.1;
     width: 400px;
     position: absolute;
-    right: 25%;
-    top: 130%;
+    top: 16%;
+    right: 30%;
     z-index: -1;
 }

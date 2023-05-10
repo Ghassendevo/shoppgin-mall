@@ -11,7 +11,7 @@ import { fetchRestaurants } from '../../../redux/reducers/restaurantsReducer'
 
 import { Skeleton } from '@mui/material'
 import { FaVrCardboard } from "react-icons/fa"
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 const buttonVariants = {
     whilehover: {
         y: -10,
@@ -21,14 +21,17 @@ const buttonVariants = {
 }
 
 const AllRestaurants = () => {
-    const [navSelected, setNavSelected] = useState("restaurants");//
+    const [navSelected, setNavSelected] = useState("");//
     const dispatch = useDispatch();
     const restaurantsData = useSelector((state) => state.restaurants.data);
     const isloading = useSelector((state) => state.restaurants.loading);
     const [searchedValue, setSearchedValue] = useState("");
+    const location = useLocation();
+    const resttype = location.state;
     const navigate = useNavigate();
     useEffect(() => {
         dispatch(fetchRestaurants());
+        setNavSelected(resttype)
     }, [])
     const handleSearch = (e) => {
         setSearchedValue(e.target.value);

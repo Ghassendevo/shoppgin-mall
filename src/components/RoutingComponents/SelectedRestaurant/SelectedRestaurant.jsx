@@ -22,7 +22,7 @@ const SelectedRestaurant = () => {
             <div className={style.nav}>
                 <a onClick={e => navigate("/")} className={style.nav_not_active}>Acceuil</a>
                 <SlArrowRight size={12} />
-                <a onClick={e => navigate("/restaurants")} className={style.nav_not_active}>Restaurants</a>
+                <a onClick={e => navigate("/restaurants", {state:"restaurants"})} className={style.nav_not_active}>Restaurants</a>
                 <SlArrowRight size={12} />
                 <a className={style.active_nav}>{restaurantData.titleRestaurant}</a>
             </div>

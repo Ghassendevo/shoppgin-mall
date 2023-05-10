@@ -33,7 +33,7 @@ function App() {
         <Route path="/loisirs" element={<Loisirs />} />
         <Route path="/loisirs/:name" element={<SelectedLoisir />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   )
 }

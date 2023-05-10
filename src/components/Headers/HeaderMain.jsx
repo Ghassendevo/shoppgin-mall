@@ -26,6 +26,10 @@ const menuVariant = {
         opacity: 1,
         height: '55vh',
     },
+    animate2: {
+        opacity: 1,
+        height: '30vh',
+    },
     exit: {
         height: 0,
         opacity: 0,
@@ -34,9 +38,10 @@ const menuVariant = {
 export const HeaderMain = () => {
     const [defaultLang, setDefaultLang] = useState("English")
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [boutiquesMenu, setBoutiquesMenu] = useState();
+    const [boutiquesMenu, setBoutiquesMenu] = useState(false);
     const [menuHovererd, setMenuHovered] = useState(false)
     const [restaurantMenu, setRestaurantMenu] = useState(false)
+    const [loisirMenu, setLoisirMenu] = useState(false)
     const navigate = useNavigate();
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -67,7 +72,7 @@ export const HeaderMain = () => {
         <>
             <div className="HeaderMain" id='home'>
                 <div style={{ marginLeft: 40 }}>
-                    <img src={logo} width={"190 px"} height={"60px"} />
+                    <img onClick={() => navigate("/")} src={logo} width={"190 px"} height={"60px"} style={{ cursor: "pointer" }} />
                 </div>
                 <div >
                     <div className="Search">
@@ -132,6 +137,7 @@ export const HeaderMain = () => {
                                 type: "tween", duration: 0.17
                             }}
                             whileTap={{ scale: 0.9 }}
+                            onMouseEnter={() => setRestaurantMenu(true)}
                             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                         >
                             <CiPizza color='#ee2d01' style={{ cursor: "pointer" }} size={45} />
@@ -147,6 +153,7 @@ export const HeaderMain = () => {
                                 type: "tween", duration: 0.17
                             }}
                             whileTap={{ scale: 0.9 }}
+                            onMouseEnter={()=>setLoisirMenu(true)}
                             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                         >
                             <BsBinoculars color='#ee2d01' style={{ cursor: "pointer", color: "#ee2d01" }} size={45} />
@@ -220,27 +227,27 @@ export const HeaderMain = () => {
                     onMouseLeave={() => (setBoutiquesMenu(false), setMenuHovered(false))}
                     className="menuBoutiques">
                     <motion.div
-                    initial={{
-                        opacity:0,
-                        x:200,
-                    }}
-                    animate={{
-                        opacity:1,
-                        x:0,
-                        transition:{
-                            delay:0.1,when:'afterParent'
-                        }
-                    }}
-                    className="inside_menuboutiques">
+                        initial={{
+                            opacity: 0,
+                            x: 200,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            x: 0,
+                            transition: {
+                                delay: 0.1, when: 'afterParent'
+                            }
+                        }}
+                        className="inside_menuboutiques">
                         <div className="inside_menu_boutiques_left">
                             <motion.div
                                 initial={{ border: "none" }}
                                 whileHover={{
                                     border: "1px solid rgb(240, 240, 240)",
                                     cursor: "pointer",
-                                    scale:1.1,
+                                    scale: 1.1,
                                 }}
-                                onClick={()=>(navigate("/boutiques",{state:"boutiques"}),setBoutiquesMenu(false))}
+                                onClick={() => (navigate("/boutiques", { state: "boutiques" }), setBoutiquesMenu(false))}
                                 className="menu_container">
                                 <p>toutes les boutiques</p>
                             </motion.div>
@@ -249,9 +256,9 @@ export const HeaderMain = () => {
                                 whileHover={{
                                     border: "1px solid rgb(240, 240, 240)",
                                     cursor: "pointer",
-                                    scale:1.1,
+                                    scale: 1.1,
                                 }}
-                                onClick={()=>(navigate("/boutiques",{state:"mode homme"}),setBoutiquesMenu(false))}
+                                onClick={() => (navigate("/boutiques", { state: "mode homme" }), setBoutiquesMenu(false))}
                                 className="menu_container">
                                 <p>mode homme</p>
                             </motion.div>
@@ -260,9 +267,9 @@ export const HeaderMain = () => {
                                 whileHover={{
                                     border: "1px solid rgb(240, 240, 240)",
                                     cursor: "pointer",
-                                    scale:1.1,
+                                    scale: 1.1,
                                 }}
-                                onClick={()=>(navigate("/boutiques",{state:"mode femme"}),setBoutiquesMenu(false))}
+                                onClick={() => (navigate("/boutiques", { state: "mode femme" }), setBoutiquesMenu(false))}
                                 className="menu_container">
                                 <p>mode femme</p>
                             </motion.div>
@@ -271,9 +278,9 @@ export const HeaderMain = () => {
                                 whileHover={{
                                     border: "1px solid rgb(240, 240, 240)",
                                     cursor: "pointer",
-                                    scale:1.1,
+                                    scale: 1.1,
                                 }}
-                                onClick={()=>(navigate("/boutiques",{state:"mode enfant"}),setBoutiquesMenu(false))}
+                                onClick={() => (navigate("/boutiques", { state: "mode enfant" }), setBoutiquesMenu(false))}
                                 className="menu_container">
                                 <p>mode enfants</p>
                             </motion.div>
@@ -281,9 +288,9 @@ export const HeaderMain = () => {
                                 initial={{ border: "none" }}
                                 whileHover={{
                                     border: "1px solid rgb(240, 240, 240)",
-                                    cursor: "pointer",scale:1.1,
+                                    cursor: "pointer", scale: 1.1,
                                 }}
-                                onClick={()=>(navigate("/boutiques",{state:"chaussures"}),setBoutiquesMenu(false))}
+                                onClick={() => (navigate("/boutiques", { state: "chaussures" }), setBoutiquesMenu(false))}
                                 className="menu_container">
                                 <p>chaussures</p>
                             </motion.div>
@@ -291,9 +298,9 @@ export const HeaderMain = () => {
                                 initial={{ border: "none" }}
                                 whileHover={{
                                     border: "1px solid rgb(240, 240, 240)",
-                                    cursor: "pointer",scale:1.1,
+                                    cursor: "pointer", scale: 1.1,
                                 }}
-                                onClick={()=>(navigate("/boutiques",{state:"cosmetiques"}),setBoutiquesMenu(false))}
+                                onClick={() => (navigate("/boutiques", { state: "cosmetiques" }), setBoutiquesMenu(false))}
                                 className="menu_container">
                                 <p>cosmetiques</p>
                             </motion.div>
@@ -301,9 +308,9 @@ export const HeaderMain = () => {
                                 initial={{ border: "none" }}
                                 whileHover={{
                                     border: "1px solid rgb(240, 240, 240)",
-                                    cursor: "pointer",scale:1.1,
+                                    cursor: "pointer", scale: 1.1,
                                 }}
-                                onClick={()=>(navigate("/boutiques",{state:"accessoires"}),setBoutiquesMenu(false))}
+                                onClick={() => (navigate("/boutiques", { state: "accessoires" }), setBoutiquesMenu(false))}
                                 className="menu_container">
                                 <p>accessoires</p>
                             </motion.div>
@@ -311,11 +318,145 @@ export const HeaderMain = () => {
                                 initial={{ border: "none" }}
                                 whileHover={{
                                     border: "1px solid rgb(240, 240, 240)",
-                                    cursor: "pointer",scale:1.1,
+                                    cursor: "pointer", scale: 1.1,
                                 }}
-                                onClick={()=>(navigate("/boutiques",{state:"maison"}),setBoutiquesMenu(false))}
+                                onClick={() => (navigate("/boutiques", { state: "maison" }), setBoutiquesMenu(false))}
                                 className="menu_container">
                                 <p>maisons</p>
+                            </motion.div>
+                        </div>
+                        <div className="inside_menu_boutiques_right">
+                            <img src={logo} alt="" />
+                        </div>
+                    </motion.div>
+                </motion.div>}
+                {restaurantMenu && <motion.div
+                    variants={menuVariant}
+                    initial="initial"
+                    animate="animate2"
+                    exit="exit"
+                    onMouseEnter={() => (setLoisirMenu(false),setBoutiquesMenu(false),setRestaurantMenu(true))}
+                    onMouseLeave={() => (setRestaurantMenu(false), setMenuHovered(false))}
+                    className="menuRestaurant">
+                    <motion.div
+                        initial={{
+                            opacity: 0,
+                            x: 200,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            x: 0,
+                            transition: {
+                                delay: 0.1, when: 'afterParent'
+                            }
+                        }}
+                        className="inside_menuboutiques">
+                        <div className="inside_menu_boutiques_left">
+                            <motion.div
+                                initial={{ border: "none" }}
+                                whileHover={{
+                                    border: "1px solid rgb(240, 240, 240)",
+                                    cursor: "pointer",
+                                    scale: 1.1,
+                                }}
+                                onClick={() => (navigate("/restaurants", { state: "restaurants" }), setRestaurantMenu(false))}
+                                className="menu_container">
+                                <p>tous les restaurants</p>
+                            </motion.div>
+                            <motion.div
+                                initial={{ border: "none" }}
+                                whileHover={{
+                                    border: "1px solid rgb(240, 240, 240)",
+                                    cursor: "pointer",
+                                    scale: 1.1,
+                                }}
+                                onClick={() => (navigate("/restaurants", { state: "fast food" }), setRestaurantMenu(false))}
+                                className="menu_container">
+                                <p>fast food</p>
+                            </motion.div>
+                            <motion.div
+                                initial={{ border: "none" }}
+                                whileHover={{
+                                    border: "1px solid rgb(240, 240, 240)",
+                                    cursor: "pointer",
+                                    scale: 1.1,
+                                }}
+                                onClick={() => (navigate("/restaurants", { state: "cafe" }), setRestaurantMenu(false))}
+                                className="menu_container">
+                                <p>café</p>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ border: "none" }}
+                                whileHover={{
+                                    border: "1px solid rgb(240, 240, 240)",
+                                    cursor: "pointer", scale: 1.1,
+                                }}
+                                onClick={() => (navigate("/restaurants", { state: "patisserie" }), setRestaurantMenu(false))}
+                                className="menu_container">
+                                <p>patisserie</p>
+                            </motion.div>
+
+                        </div>
+                        <div className="inside_menu_boutiques_right">
+                            <img src={logo} alt="" />
+                        </div>
+                    </motion.div>
+                </motion.div>}
+                {loisirMenu && <motion.div
+                    variants={menuVariant}
+                    initial="initial"
+                    animate="animate2"
+                    exit="exit"
+                    onMouseEnter={() => (setRestaurantMenu(false),setBoutiquesMenu(false),setLoisirMenu(true))}
+                    onMouseLeave={() => (setLoisirMenu(false), setMenuHovered(false))}
+                    className="menuRestaurant">
+                    <motion.div
+                        initial={{
+                            opacity: 0,
+                            x: 200,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            x: 0,
+                            transition: {
+                                delay: 0.1, when: 'afterParent'
+                            }
+                        }}
+                        className="inside_menuboutiques">
+                        <div className="inside_menu_boutiques_left">
+                            <motion.div
+                                initial={{ border: "none" }}
+                                whileHover={{
+                                    border: "1px solid rgb(240, 240, 240)",
+                                    cursor: "pointer",
+                                    scale: 1.1,
+                                }}
+                                onClick={() => (navigate("/loisirs", { state: "tous" }), setLoisirMenu(false))}
+                                className="menu_container">
+                                <p>tous les loisirs</p>
+                            </motion.div>
+                            <motion.div
+                                initial={{ border: "none" }}
+                                whileHover={{
+                                    border: "1px solid rgb(240, 240, 240)",
+                                    cursor: "pointer",
+                                    scale: 1.1,
+                                }}
+                                onClick={() => (navigate("/loisirs", { state: "culture" }), setLoisirMenu(false))}
+                                className="menu_container">
+                                <p>culture</p>
+                            </motion.div>
+                            <motion.div
+                                initial={{ border: "none" }}
+                                whileHover={{
+                                    border: "1px solid rgb(240, 240, 240)",
+                                    cursor: "pointer",
+                                    scale: 1.1,
+                                }}
+                                onClick={() => (navigate("/loisirs", { state: "loisir" }), setLoisirMenu(false))}
+                                className="menu_container">
+                                <p>loisirs</p>
                             </motion.div>
                         </div>
                         <div className="inside_menu_boutiques_right">
