@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const Marque = () => {
   const navigate = useNavigate();
   return (
-    <div className="marque">
+    <div className="marque" id='marque'>
       <div className="inside_marque">
         <div className="for_marque">
           <h2 className="marque_n">Marques</h2>

@@ -5,7 +5,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { color, motion } from 'framer-motion'
 const News = () => {
     return (
-        <div className="news">
+        <div className="news" id="news">
             <div className="inside_news">
                 <div className="for_news">
                     <h2 className="news_n">News</h2>

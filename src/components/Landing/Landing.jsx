@@ -7,7 +7,7 @@ import image2 from "../../assets/main-banner-02_1903x740.png"
 import banner1 from "../../assets/banner-01.png";
 import banner2 from "../../assets/banner-02.png";
 import banner3 from "../../assets/banner-03.png";
-import { animate, motion } from 'framer-motion';
+import { AnimatePresence, animate, motion } from 'framer-motion';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md"
 import { SlArrowLeft, SlArrowRight, } from "react-icons/sl"
 // Import Swiper styles
@@ -16,16 +16,49 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import badge from "../../assets/badge.png";
 import badge2 from "../../assets/badge2.png"
+import hello from "../../assets/hello.png"
 import { Autoplay, Pagination, Navigation } from 'swiper';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 export const Landing = () => {
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
+    const [welcomeVisible, setWelcomeVisible] = useState(false);
     const onAutoplayTimeLeft = (s, time, progress) => {
         progressCircle.current.style.setProperty('--progress', 1 - progress);
         progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
+    const userAuth = useSelector((state) => state.login.data);
+    let user = JSON.parse(localStorage.getItem("user"))
+    useEffect(()=>{
+        if(user && user.once){
+           setWelcomeVisible(true);
+           setTimeout(() => {
+                setWelcomeVisible(false)
+                localStorage.setItem("user",JSON.stringify({user:user.user,once:false}))
+           }, 4000);
+        }
+    },[])
     return (
         <div className="landing" id='landing'>
+            <AnimatePresence>
+                {welcomeVisible && <motion.div initial={{
+                    y:-200,
+                    opacity:0,
+                }} 
+                animate={{
+                    opacity:1,
+                    y:0,
+                }}
+                exit={{
+                    y:50,
+                    opacity:0,
+                }}
+                className="welcome_login">
+                    <p> welcome back <strong> {user.user.name} </strong><br /></p><img src={hello} width={20} alt="" />
+
+                </motion.div>}
+            </AnimatePresence>
             <div className="container">
                 <Swiper
                     spaceBetween={30}

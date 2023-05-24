@@ -76,6 +76,18 @@
     border-bottom: 1px solid rgb(219, 219, 219);
 }
 
+.popoverboutiques {
+    position: absolute;
+    right: 4%;
+    top: 10%;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+}
+
 .for_fetched_boutiques {
     padding-top: 60px;
     width: 70%;

@@ -153,7 +153,7 @@ export const HeaderMain = () => {
                                 type: "tween", duration: 0.17
                             }}
                             whileTap={{ scale: 0.9 }}
-                            onMouseEnter={()=>setLoisirMenu(true)}
+                            onMouseEnter={() => setLoisirMenu(true)}
                             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                         >
                             <BsBinoculars color='#ee2d01' style={{ cursor: "pointer", color: "#ee2d01" }} size={45} />
@@ -180,35 +180,56 @@ export const HeaderMain = () => {
                                 originX: 0,
                             }}
 
-                            href="" className="nav_li">Home</motion.a>
+                            href="/#landing" className="nav_li">Home</motion.a>
                         <motion.a
                             whileHover={{
                                 scale: 1.1,
                                 originX: 0,
                             }}
 
-                            href="" className="nav_li">Our Store</motion.a>
+                            href="/#news" className="nav_li">News</motion.a>
                         <motion.a
                             whileHover={{
                                 scale: 1.1,
                                 originX: 0,
                             }}
 
-                            href="" className="nav_li">Blogs</motion.a>
+                            href="/#offre" className="nav_li">Offre</motion.a>
                         <motion.a
                             whileHover={{
                                 scale: 1.1,
                                 originX: 0,
                             }}
 
-                            href="" className="nav_li">Contact</motion.a>
+                            href="/#marque" className="nav_li">Marques</motion.a>
                         <motion.a
                             whileHover={{
                                 scale: 1.1,
                                 originX: 0,
                             }}
 
-                            href="" className="nav_li">For Kids</motion.a>
+                            href="/#pathé" className="nav_li">Pathé</motion.a>
+                        <motion.a
+                            whileHover={{
+                                scale: 1.1,
+                                originX: 0,
+                            }}
+
+                            href="/#piezza" className="nav_li">Piezza</motion.a>
+                        <motion.a
+                            whileHover={{
+                                scale: 1.1,
+                                originX: 0,
+                            }}
+
+                            href="/#service" className="nav_li">Services</motion.a>
+                             <motion.a
+                            whileHover={{
+                                scale: 1.1,
+                                originX: 0,
+                            }}
+
+                            onClick={e=>navigate("/plan")} className="nav_li">Plan</motion.a>
                     </div>
                 </div>
                 <div className="navigtwo">
@@ -335,7 +356,7 @@ export const HeaderMain = () => {
                     initial="initial"
                     animate="animate2"
                     exit="exit"
-                    onMouseEnter={() => (setLoisirMenu(false),setBoutiquesMenu(false),setRestaurantMenu(true))}
+                    onMouseEnter={() => (setLoisirMenu(false), setBoutiquesMenu(false), setRestaurantMenu(true))}
                     onMouseLeave={() => (setRestaurantMenu(false), setMenuHovered(false))}
                     className="menuRestaurant">
                     <motion.div
@@ -408,7 +429,7 @@ export const HeaderMain = () => {
                     initial="initial"
                     animate="animate2"
                     exit="exit"
-                    onMouseEnter={() => (setRestaurantMenu(false),setBoutiquesMenu(false),setLoisirMenu(true))}
+                    onMouseEnter={() => (setRestaurantMenu(false), setBoutiquesMenu(false), setLoisirMenu(true))}
                     onMouseLeave={() => (setLoisirMenu(false), setMenuHovered(false))}
                     className="menuRestaurant">
                     <motion.div

@@ -25,7 +25,7 @@ const Food = () => {
         dispatch(fetchRestaurants());
     }, [])
     return (
-        <div className='food'>
+        <div className='food' id='piezza'>
             <h2>food piezza</h2>
             <h3>Quand le goût et les saveurs se réunissent !</h3>
             <img src={pizza} className="pizza" alt="" />

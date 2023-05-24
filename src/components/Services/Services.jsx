@@ -11,7 +11,7 @@ const Services = () => {
     const containerRef = useRef();
     return (
         <>
-            <div className="Services">
+            <div className="Services" id='service'>
                 <h2>Services</h2>
                 <h3>garantissent la meilleure expérience de shopping !</h3>
                 <img src={customer} className="customer" alt="" />

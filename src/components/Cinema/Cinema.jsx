@@ -37,7 +37,7 @@ const Cinema = ({ setpassComponent }) => {
         myvid.current.play();
     };
     return (
-        <motion.div className="cinema" >
+        <motion.div className="cinema" id='pathé' >
             <div className="inside_cinema">
                 <div className="for_cinema">
                     <h2 className="cinema_n">Films</h2>

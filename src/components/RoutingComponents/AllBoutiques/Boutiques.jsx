@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getBoutiques } from '../../../redux/actions/getAlldata'
 import { fetchBoutiques } from '../../../redux/reducers/boutiquesReducer'
 import { getAllBoutiques } from '../../../redux/reducers/boutiquesReducer'
-
+import {AiOutlineMore} from "react-icons/ai"
 import { Skeleton } from '@mui/material'
 import { FaVrCardboard } from "react-icons/fa"
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -38,9 +38,9 @@ const Boutiques = () => {
     return (
         <div className={style.boutiques}>
             <div className={style.nav}>
-                <a onClick={e=>navigate("/")} href="" className={style.nav_not_active}>Acceuil</a>
+                <a onClick={e => navigate("/")} href="" className={style.nav_not_active}>Acceuil</a>
                 <SlArrowRight size={12} />
-                <a onClick={e=>navigate("/boutiques")} href="" className={style.active_nav}>Boutiques</a>
+                <a onClick={e => navigate("/boutiques")} href="" className={style.active_nav}>Boutiques</a>
                 <SlArrowRight size={12} />
                 {navSelected !== "boutiques" && <a href="" className={style.active_nav}>{navSelected}</a>}
             </div>
@@ -163,26 +163,14 @@ const MainBoutiques = ({ type, boutiquesData, searching }) => {
             setFilteredValue(boutiquesData.filter((a, b) => { return a.titleBoutique.includes(searching) }))
         } else {
             if (type == "boutiques") { setFilteredValue(boutiquesData) }
-            else if (type == "accessoires") {
-                setFilteredValue(boutiquesData.filter((a, b) => { return a.type_boutique == type }))
-            } else if (type == "mode enfant") {
-                setFilteredValue(boutiquesData.filter((a, b) => { return a.type_boutique == type }))
-            } else if (type == "cosmetiques") {
-                setFilteredValue(boutiquesData.filter((a, b) => { return a.type_boutique == type }))
-            } else if (type == "chaussures") {
-                setFilteredValue(boutiquesData.filter((a, b) => { return a.type_boutique == type }))
-            } else if (type == "maison") {
-                setFilteredValue(boutiquesData.filter((a, b) => { return a.type_boutique == type }))
-            } else if (type == "mode femme") {
-                setFilteredValue(boutiquesData.filter((a, b) => { return a.type_boutique == type }))
-            } else if (type == "mode homme") {
+            else {
                 setFilteredValue(boutiquesData.filter((a, b) => { return a.type_boutique == type }))
             }
         }
     }, [type, searching])
     //methodes
     const navigateToSelectedBoutique = (e) => {
-        navigate(`/shops/${e.titleBoutique}`,{state:e});
+        navigate(`/shops/${e.titleBoutique}`, { state: e });
     }
     return (
         <div className={style.for_fetched_boutiques}>
@@ -210,6 +198,7 @@ const MainBoutiques = ({ type, boutiquesData, searching }) => {
                                     whileInView="whileinview"
                                     className={style.one_boutique}>
                                     {value.logo_boutique}
+                                  
                                     <img src={value.logoBoutique} width={220} alt="" />
                                     <h3>{value.type_boutique}</h3>
                                 </motion.div>

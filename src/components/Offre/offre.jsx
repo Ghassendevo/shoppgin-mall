@@ -28,7 +28,7 @@ const variantOffre = {
 }
 const Offre = () => {
   return (
-    <div className="offre">
+    <div className="offre" id='offre'>
       <div className="inside_news">
         <div className="for_news">
           <h2 className="news_n">Offre</h2>
