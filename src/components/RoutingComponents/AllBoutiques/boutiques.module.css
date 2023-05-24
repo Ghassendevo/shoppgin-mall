@@ -88,11 +88,149 @@
     border-radius: 50%;
 }
 
+.add_main {
+    position: fixed;
+    bottom: 7%;
+    right: 5%;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    z-index: 30;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    justify-content: center;
+    box-shadow: 1px 1px 21px 8px rgb(226, 226, 226);
+}
+
+.add_container {
+    position: fixed;
+    z-index: 40;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.add_data {
+    position: absolute;
+    margin: auto;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 5px;
+    border: 1px solid rgb(247, 247, 247);
+    right: 0;
+    width: 40%;
+    height: 50%;
+}
+
 .for_fetched_boutiques {
     padding-top: 60px;
     width: 70%;
     margin-bottom: 150vh;
     height: auto;
+}
+
+.update_boutique:hover {
+    background-color: #ff6a48;
+}
+
+.linear_update {
+    position: absolute;
+    top: -5.9%;
+    width: 111%;
+    left: -5.5%;
+}
+
+.inputarea {
+    height: 90px;
+    padding: 10px;
+    outline: none;
+    border: 2px solid rgb(238, 238, 238);
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.update_boutique {
+    position: absolute;
+    width: 90%;
+    bottom: 4%;
+    height: 40px;
+    background-color: #fb4a22;
+    border: 1px solid #fb4a22;
+    color: white;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.inputsimple:focus,
+.inputselect:focus {
+    border: 1px solid #f2380c;
+}
+
+.inputselect {
+    height: 40px;
+    padding: 10px;
+    outline: none;
+    border: 2px solid rgb(238, 238, 238);
+    width: 45%;
+}
+
+.inputsimple {
+    height: 40px;
+    padding: 10px;
+    outline: none;
+    border: 2px solid rgb(238, 238, 238);
+    width: 45%;
+}
+
+.edit_container {
+    height: 90%;
+    width: 90%;
+}
+
+.cancel_container {
+    position: absolute;
+    top: -3%;
+    cursor: pointer;
+    right: -3%;
+}
+
+.inside_edit {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    height: 65%;
+    background-color: white;
+    border: 1px solid rgb(211, 211, 211);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.err_password {
+    width: 20%;
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+}
+
+.EditObject {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    top: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .input_search {

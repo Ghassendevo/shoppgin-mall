@@ -88,7 +88,7 @@ const SelectedRestaurant = () => {
                                 exit={{
                                     opacity: 0,
                                 }}
-                            ><Menu object={restaurantData} setEdit={setEdit} setOpen={setOpen} /></motion.div>}
+                            ><Menu object={restaurantData} setShowMenu={setShowMenu} setEdit={setEdit} setOpen={setOpen} /></motion.div>}
                         </AnimatePresence>
                     </div>
                     <div onClick={e => setShowMenu(!showMenu)} className={style.popoverboutiques}>
@@ -197,7 +197,7 @@ const SelectedRestaurant = () => {
                     <div className={style.swiper_button_next_unique}>sdfdsfd</div>
                 </Swiper>
             </div>
-            {edit && <EditObject object={restaurantData} setEdit={setEdit} setBoutiqueData={setrestaurantData} />}
+            {edit && <EditObject object={restaurantData} setShowMenu={setShowMenu} setEdit={setEdit} setBoutiqueData={setrestaurantData} />}
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -218,17 +218,17 @@ const SelectedRestaurant = () => {
         </div>
     )
 }
-const Menu = ({ object, setEdit, setOpen }) => {
+const Menu = ({ object, setEdit, setOpen, setShowMenu }) => {
     return (
         <Paper sx={{ width: 320, maxWidth: '100%' }}>
             <MenuList>
-                <MenuItem onClick={e => setEdit(true)}>
+                <MenuItem onClick={e => (setEdit(true), setShowMenu(false))}>
                     <ListItemIcon>
                         <AiOutlineEdit size={20} />
                     </ListItemIcon>
                     <ListItemText >Edit</ListItemText>
                 </MenuItem>
-                <MenuItem onClick={e => setOpen(true)}>
+                <MenuItem onClick={e => (setOpen(true), setShowMenu(false))}>
                     <ListItemIcon>
                         <AiOutlineDelete size={20} />
                     </ListItemIcon>

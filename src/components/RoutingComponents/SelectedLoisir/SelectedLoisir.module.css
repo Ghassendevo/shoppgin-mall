@@ -57,11 +57,42 @@
     background-color: #ff6a48;
 }
 
+.leftmainrestaurant:hover>.popoverboutiques {
+    display: flex;
+}
+
+.popoverboutiques {
+    display: none;
+    position: absolute;
+    right: 4%;
+    top: 10%;
+    background-color: white;
+    box-shadow: 1px 1px 8px 5px rgb(235, 235, 235);
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+}
+
 .cancel_container {
     position: absolute;
     top: -3%;
     cursor: pointer;
     right: -3%;
+}
+
+.menu_forboutique {
+    position: absolute;
+    right: -70%
+}
+
+.EditObject {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    top: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .inputarea {

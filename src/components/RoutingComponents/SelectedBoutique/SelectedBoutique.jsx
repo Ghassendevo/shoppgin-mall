@@ -91,7 +91,7 @@ const SelectedBoutique = () => {
                                 exit={{
                                     opacity: 0,
                                 }}
-                            ><Menu object={boutiqueData} setEdit={setEdit} setOpen={setOpen} /></motion.div>}
+                            ><Menu object={boutiqueData} setShowMenu={setShowMenu} setEdit={setEdit} setOpen={setOpen} /></motion.div>}
                         </AnimatePresence>
                     </div>
                     <div onClick={e => setShowMenu(!showMenu)} className={style.popoverboutiques}>
@@ -219,17 +219,17 @@ const SelectedBoutique = () => {
         </div>
     )
 }
-const Menu = ({ object, setEdit, setOpen }) => {
+const Menu = ({ object, setEdit, setOpen, setShowMenu }) => {
     return (
         <Paper sx={{ width: 320, maxWidth: '100%' }}>
             <MenuList>
-                <MenuItem onClick={e => setEdit(true)}>
+                <MenuItem onClick={e => (setEdit(true), setShowMenu(false))}>
                     <ListItemIcon>
                         <AiOutlineEdit size={20} />
                     </ListItemIcon>
                     <ListItemText >Edit</ListItemText>
                 </MenuItem>
-                <MenuItem onClick={e => setOpen(true)}>
+                <MenuItem onClick={e => (setOpen(true), setShowMenu(false))}>
                     <ListItemIcon>
                         <AiOutlineDelete size={20} />
                     </ListItemIcon>
@@ -243,7 +243,7 @@ const Menu = ({ object, setEdit, setOpen }) => {
         </Paper>
     )
 }
-const EditObject = ({ object, setEdit, setBoutiqueData }) => {
+const EditObject = ({ object, setEdit, setBoutiqueData, setShowMenu }) => {
     const [boutiqueTitle, setboutiqueTitle] = useState(object.titleBoutique)
     const [boutiqueType, setBoutiqueType] = useState(object.type_boutique)
     const [timeouverture, settimeOuverture] = useState(object.timeouverture)
@@ -254,13 +254,14 @@ const EditObject = ({ object, setEdit, setBoutiqueData }) => {
     const [contactboutique, setcontactboutique] = useState(object.contactBoutique)
     const [descboutique, setdescboutique] = useState(object.descriptionBoutique)
     //
-    console.log(object)
+
     const [isloading, setisloading] = useState(false);
     const [err, setErr] = useState(false)
     const [success, setSuccess] = useState(false);
     const navigate = useNavigate();
     //
     const handleChange = () => {
+        setShowMenu(false)
         setisloading(true);
         axios.post(`http://localhost:9006/api/boutique/update/${object.idBoutique}`, {
             descriptionBoutique: descboutique,
@@ -333,7 +334,7 @@ const EditObject = ({ object, setEdit, setBoutiqueData }) => {
                     </Alert>
                 </motion.div>}
                 <div className={style.inside_edit}>
-                    <div className={style.cancel_container} onClick={e => setEdit(false)}>
+                    <div className={style.cancel_container} onClick={e => (setEdit(false), setShowMenu(false))}>
                         <MdOutlineCancel size={25} color='red' />
                     </div>
                     <div className={style.edit_container}>
