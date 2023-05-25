@@ -189,6 +189,80 @@ a {
     justify-content: center;
 }
 
+.big_search {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 40;
+    background-color: white;
+}
+
+.big_close {
+    position: fixed;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
+}
+
+.one_boutique {
+    display: flex;
+    width: 50vh;
+    position: relative;
+    height: 30vh;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 1px 12px rgb(240, 240, 240);
+}
+
+.one_boutique>h3 {
+    position: absolute;
+    bottom: 3%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.data_container {
+    overflow-x: hidden;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: auto;
+    height: 50%;
+    top: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_big {
+    position: fixed;
+    margin: auto;
+    top: 10%;
+    left: 0;
+    right: 0;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: red;
+}
+
+.inbig {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .menuRestaurant {
     position: fixed;
     width: 70vh;

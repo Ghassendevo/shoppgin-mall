@@ -20,7 +20,7 @@ const SelectedBoutique = () => {
     const AllBoutiques = useSelector((state) => state.boutiques.data)
     const [boutiqueData, setBoutiqueData] = useState({});
     const [isloading, setisloading] = useState(true)
-
+    const [isadmin, setisadmin] = useState(false)
     useEffect(() => {
         const b = location.state;
         axios.get(`http://localhost:9006/api/boutiqueid/${b.idBoutique}`)
@@ -30,7 +30,11 @@ const SelectedBoutique = () => {
             }).catch(err => {
                 alert(err)
             })
-
+        let user = localStorage.getItem("user");
+        if (user != null) {
+            user = JSON.parse(user);
+            if (user.user.email == "admin") setisadmin(true);
+        }
     }, [])
     const [open, setOpen] = React.useState(false);
     const [edit, setEdit] = useState(false)
@@ -94,9 +98,9 @@ const SelectedBoutique = () => {
                             ><Menu object={boutiqueData} setShowMenu={setShowMenu} setEdit={setEdit} setOpen={setOpen} /></motion.div>}
                         </AnimatePresence>
                     </div>
-                    <div onClick={e => setShowMenu(!showMenu)} className={style.popoverboutiques}>
+                    {isadmin && <div onClick={e => setShowMenu(!showMenu)} className={style.popoverboutiques}>
                         <AiOutlineMore size={30} />
-                    </div>
+                    </div>}
                     <img src={boutiqueData.logoBoutique} width={220} alt="" />
                     <h3>{boutiqueData.type_boutique}</h3>
                 </motion.div>

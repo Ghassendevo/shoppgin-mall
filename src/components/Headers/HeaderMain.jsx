@@ -17,6 +17,11 @@ import { BsShop, BsBinoculars } from "react-icons/bs"
 import logo from "../../assets/mallLogo.png"
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { fetchBoutiques } from '../../redux/reducers/boutiquesReducer';
+import { fetchRestaurants } from '../../redux/reducers/restaurantsReducer';
+import { fetchLoisir } from '../../redux/reducers/loisirReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { Chip } from '@mui/material';
 const menuVariant = {
     initial: {
         opacity: 0,
@@ -34,6 +39,32 @@ const menuVariant = {
         height: 0,
         opacity: 0,
     }
+};
+
+const boutiqueVariant = {
+    initial: {
+        opacity: 0,
+        y: -50,
+    },
+
+    whileHover: {
+        scale: 1.03,
+        rotate: 1,
+        transition: {
+            type: "spring"
+        }
+    },
+    whileinview: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: 'spring', stiffness: 100
+        }
+    },
+    exit: {
+        y: -200,
+
+    }
 }
 export const HeaderMain = () => {
     const [defaultLang, setDefaultLang] = useState("English")
@@ -43,7 +74,19 @@ export const HeaderMain = () => {
     const [restaurantMenu, setRestaurantMenu] = useState(false)
     const [loisirMenu, setLoisirMenu] = useState(false)
     const navigate = useNavigate();
+    const [showSearch, setshowsearch] = useState(false)
     const open = Boolean(anchorEl);
+    //
+    const dispatch = useDispatch();
+    const boutiqueData = useSelector((state) => state.boutiques.data)
+    const isloadingboutique = useSelector((state) => state.boutiques.loading)
+    //
+    const restaurantData = useSelector((state) => state.restaurants.data)
+    const isloadingrestaurant = useSelector((state) => state.restaurants.loading)
+    //
+    const loisirData = useSelector((state) => state.loisirs.data)
+    const isloadingloisir = useSelector((state) => state.loisirs.loading)
+    //
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -51,7 +94,14 @@ export const HeaderMain = () => {
         setAnchorEl(null);
         setDefaultLang(e)
     };
-    const [searchValue, setsearchValue] = useState("");
+    const [searchValueBoutique, setsearchValueBoutique] = useState([]);
+    const [searchValueRestaurant, setsearchValueRestaurant] = useState([]);
+    const [searchValueLoisir, setsearchValueLoisir] = useState([]);
+    const [isloggedin, setisloggedin] = useState(false)
+    useEffect(() => {
+        let a = localStorage.getItem("user");
+        if (a) setisloggedin(true)
+    }, [])
     const exitMenuBoutique = () => {
         setTimeout(() => {
             alert(menuHovererd)
@@ -67,7 +117,37 @@ export const HeaderMain = () => {
     const itemsClick = () => {
 
     }
+    const logout = () => {
+        localStorage.clear();
+        navigate("/login")
+    }
+    const login = () => {
+        navigate("/login")
+    }
+    const handleSearch = (e) => {
+        const value = e.target.value;
+        const filtereddata = boutiqueData.filter((a) => { return a.titleBoutique.includes(value) })
+        setsearchValueBoutique(filtereddata);
+        console.log(searchValueBoutique)
+        //
+        const filtereddata2 = restaurantData.filter((a, b) => { return a.titleRestaurant.includes(value) })
+        setsearchValueRestaurant(filtereddata2);
+        //
+        const filtereddata3 = loisirData.filter((a, b) => { return a.titleLoisir.includes(value) })
+        setsearchValueLoisir(filtereddata3);
+    }
+    const navigateToSelectedRestaurant = (e) => {
+        setshowsearch(false)
+        navigate(`/restaurants/${e.titleRestaurant}`, { state: e });
 
+    }
+    const navigateToSelectedBoutique = (e) => {
+        setshowsearch(false)
+        navigate(`/shops/${e.titleBoutique}`, { state: e });
+    }
+    const navigateToSelectedLoisir = (e) => {
+        navigate(`/loisirs/${e.titleLoisir}`, { state: e });
+    }
     return (
         <>
             <div className="HeaderMain" id='home'>
@@ -76,8 +156,8 @@ export const HeaderMain = () => {
                 </div>
                 <div >
                     <div className="Search">
-                        <input type="text" onChange={e => setsearchValue(e.target.value)} value={searchValue} placeholder='Search Product here...' />
-                        {searchValue != "" && <AiOutlineClose onClick={() => setsearchValue("")} style={{ cursor: "pointer" }} size={14} />}
+                        <input type="text" onClick={e => (setshowsearch(true), dispatch(fetchBoutiques()), dispatch(fetchRestaurants()), dispatch(fetchLoisir()))} placeholder='Search Product here...' />
+                        {/* <AiOutlineClose onClick={() => setsearchValue("")} style={{ cursor: "pointer" }} size={14} /> */}
                         <button>
                             <AiOutlineSearch color='white' style={{ cursor: "pointer" }} size={18} />
                         </button>
@@ -166,10 +246,7 @@ export const HeaderMain = () => {
             <div className="navigationmenu">
                 <div className="navigone">
                     <div>
-                        <HiOutlineMenuAlt1 size={20} />
-                        <p>Shop Category</p>
-                        <RiArrowDropDownLine size={20} />
-
+                        {isloggedin && <Chip label="Log out" variant="outlined" onClick={e => logout()} /> || <Chip label="Log in" variant="outlined" onClick={e => login()} />}
                     </div>
                     <div className="line">
                     </div>
@@ -223,13 +300,13 @@ export const HeaderMain = () => {
                             }}
 
                             href="/#service" className="nav_li">Services</motion.a>
-                             <motion.a
+                        <motion.a
                             whileHover={{
                                 scale: 1.1,
                                 originX: 0,
                             }}
 
-                            onClick={e=>navigate("/plan")} className="nav_li">Plan</motion.a>
+                            onClick={e => navigate("/plan")} className="nav_li">Plan</motion.a>
                     </div>
                 </div>
                 <div className="navigtwo">
@@ -484,6 +561,68 @@ export const HeaderMain = () => {
                             <img src={logo} alt="" />
                         </div>
                     </motion.div>
+                </motion.div>}
+                {showSearch && <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className='big_search'>
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        className="big_close">
+                        <AiOutlineClose onClick={e => setshowsearch(false)} className='big_close' size={50} />
+                    </motion.div>
+                    <div className="input_big">
+                        <input type="text" onChange={e => handleSearch(e)} placeholder='Search for anything ' className="inbig" />
+                    </div>
+                    <div className="data_container">
+                        {searchValueBoutique.map((value, index) => {
+                            return <motion.div
+                                key={index}
+                                onClick={e => navigateToSelectedBoutique(value)}
+                                variants={boutiqueVariant}
+                                initial="initial"
+                                exit="exit"
+                                whileHover="whileHover"
+                                whileInView="whileinview"
+                                className="one_boutique">
+                                {value.logo_boutique}
+                                <img src={value.logoBoutique} width={220} alt="" />
+                                <h3>{value.type_boutique}</h3>
+                            </motion.div>
+
+                        })}
+                        {searchValueRestaurant.map((value, index) => {
+                            return <motion.div
+                                onClick={e => navigateToSelectedRestaurant(value)}
+                                variants={boutiqueVariant}
+                                initial="initial"
+                                exit="exit"
+                                whileHover="whileHover"
+                                whileInView="whileinview"
+                                className="one_boutique">
+                                {value.logo_boutique}
+                                <img src={value.logoRestaurant} width={220} alt="" />
+                                <h3>{value.type}</h3>
+                            </motion.div>
+
+                        })}
+                        {searchValueLoisir.map((value, index) => {
+                            return <motion.div
+                                onClick={e => navigateToSelectedLoisir(value)}
+                                variants={boutiqueVariant}
+                                initial="initial"
+                                exit="exit"
+                                whileHover="whileHover"
+                                whileInView="whileinview"
+                                className="one_boutique">
+                                {value.logo_boutique}
+                                <img src={value.logoLoisir} width={220} alt="" />
+                                <h3>{value.titleLoisir}</h3>
+                            </motion.div>
+
+                        })}
+                    </div>
                 </motion.div>}
             </AnimatePresence>
         </>

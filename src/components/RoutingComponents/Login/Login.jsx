@@ -23,7 +23,7 @@ const Login = () => {
     const userAuthLocal = localStorage.getItem("user");
     const navigate = useNavigate();
     useEffect(() => {
-        if (userAuthLocal || userAuth) navigate("/")
+        if (userAuthLocal) navigate("/")
         else dispatch(inlogin(true))
 
     }, [])
@@ -53,7 +53,7 @@ const Login = () => {
                         setsuccess(false)
                     }, 2000);
                     dispatch(loginauth(res.data))
-                    localStorage.setItem("user", JSON.stringify({ user: res.data, once: true }))
+                    localStorage.setItem("user", JSON.stringify({ user: res.data, once: true}))
                     navigate("/")
 
                 }

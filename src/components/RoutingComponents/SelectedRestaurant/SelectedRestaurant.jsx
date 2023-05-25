@@ -22,6 +22,7 @@ const SelectedRestaurant = () => {
     const navigateToSelectedRestaurant = (e) => {
         navigate(`/restaurants/${e.titleRestaurant}`, { state: e })
     }
+    const [isadmin, setisadmin] = useState(false);
     useEffect(() => {
         const b = location.state;
         axios.get(`http://localhost:9006/api/restaurant/find/${b.idRestaurant}`).then(res => {
@@ -30,6 +31,11 @@ const SelectedRestaurant = () => {
         }).catch(err => {
             alert(err)
         })
+        let user = localStorage.getItem("user");
+        if (user != null) {
+            user = JSON.parse(user);
+            if (user.user.email == "admin") setisadmin(true);
+        }
     }, [])
     const [showMenu, setShowMenu] = useState(false);
     const [open, setOpen] = React.useState(false);
@@ -91,9 +97,9 @@ const SelectedRestaurant = () => {
                             ><Menu object={restaurantData} setShowMenu={setShowMenu} setEdit={setEdit} setOpen={setOpen} /></motion.div>}
                         </AnimatePresence>
                     </div>
-                    <div onClick={e => setShowMenu(!showMenu)} className={style.popoverboutiques}>
+                    {isadmin && <div onClick={e => setShowMenu(!showMenu)} className={style.popoverboutiques}>
                         <AiOutlineMore size={30} />
-                    </div>
+                    </div>}
                     <img src={restaurantData.logoRestaurant} width={220} alt="" />
                     <h3>{restaurantData.type}</h3>
                 </motion.div>

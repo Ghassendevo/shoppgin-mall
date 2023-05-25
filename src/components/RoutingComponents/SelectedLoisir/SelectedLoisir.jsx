@@ -25,6 +25,7 @@ const SelectedLoisir = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [open, setOpen] = React.useState(false);
     const [edit, setEdit] = useState(false)
+    const [isadmin, setisadmin] = useState(false)
     //
     useEffect(() => {
         const b = location.state;
@@ -34,6 +35,11 @@ const SelectedLoisir = () => {
         }).catch(err => {
             alert(err)
         })
+        let user = localStorage.getItem("user");
+        if (user != null) {
+            user = JSON.parse(user);
+            if (user.user.email == "admin") setisadmin(true);
+        }
     }, [])
     const handleClickOpen = () => {
         setOpen(true);
@@ -91,9 +97,9 @@ const SelectedLoisir = () => {
                             ><Menu object={restaurantData} setShowMenu={setShowMenu} setEdit={setEdit} setOpen={setOpen} /></motion.div>}
                         </AnimatePresence>
                     </div>
-                    <div onClick={e => setShowMenu(!showMenu)} className={style.popoverboutiques}>
+                    {isadmin && <div onClick={e => setShowMenu(!showMenu)} className={style.popoverboutiques}>
                         <AiOutlineMore size={30} />
-                    </div>
+                    </div>}
                     <img src={restaurantData.logoLoisir} width={220} alt="" />
                     <h3>{restaurantData.typeLoisir}</h3>
                 </motion.div>

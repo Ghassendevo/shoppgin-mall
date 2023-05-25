@@ -33,9 +33,16 @@ const Boutiques = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const boutType = location.state
+    const [isadmin, setisadmin] = useState(false);
     useEffect(() => {
         dispatch(fetchBoutiques());
         setNavSelected(boutType)
+        let user = localStorage.getItem("user");
+        if(user!=null){
+            user = JSON.parse(user);
+            if (user.user.email == "admin") setisadmin(true);
+        }
+        
     }, [])
     const handleSearch = (e) => {
         setSearchedValue(e.target.value);
@@ -165,7 +172,7 @@ const Boutiques = () => {
                         type="text" onChange={e => handleSearch(e)} className={style.input_search} placeholder='Search for boutiques' />
                 </div>
                 {isloading && <MainBoutiquesSkeleton /> || <MainBoutiques type={navSelected} boutiquesData={boutiquesData} searching={searchedValue} />}
-                <motion.div
+                {isadmin && <motion.div
                     whileHover={{
                         backgroundColor: "#fb4a22",
                         color: "white",
@@ -174,7 +181,7 @@ const Boutiques = () => {
                     onClick={e => setidadd(true)}
                     className={style.add_main}>
                     <AiOutlinePlus size={18} />
-                </motion.div>
+                </motion.div>}
 
             </div>
             <AnimatePresence>
